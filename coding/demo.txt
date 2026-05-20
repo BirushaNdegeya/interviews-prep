@@ -1,0 +1,43 @@
+[1,2,3,4,5,6] -> 3
+
+
+function maxSubarraySum(arr, num) {
+  if (num > arr.length) return null;     // edge case: window too big
+
+  var max = -Infinity;                   // handles negative arrays
+
+  for (let i = 0; i < arr.length - num + 1; i++) {   // i: window start
+    temp = 0;
+    for (let j = 0; j < num; j++) {                   // j: window size
+    console.log(i, j, arr[i + j])
+      temp += arr[i + j];    
+      // sum elements in window
+    }
+    max = Math.max(temp, max);
+  }
+  return max;
+}
+
+
+console.log(maxSubarraySum([12, 13, 48, 3, 4, 6, 88, 100, 43, 10, 43, 43], 4)); // annee
+
+
+// [1,2,3,4,5,6]
+
+
+
+eze code
+let arr = [4, 38, 39, 8, 94, 94]
+let max1 = -Infinity, max2 = -Infinity;
+console.log(Math.max([1, 2, "empty", 4, 5]))
+console.log("max1", "max2")
+for(let num of arr) {
+    if(num >= max1) {
+        max2 = max1;
+        max1 = num;
+    } else if(num >= max2 && num !== max1) {
+        max2 = num;
+    }
+    console.log(max1, max2);
+}
+console.log("eze", max1 + max2);
