@@ -9,7 +9,8 @@ JavaScript
  * @param {Object} refB 
  */
 function areDeepEqual(refA, refB) {
-
+  const akeys = Object.keys(refA);
+  console.log(akeys);
 }
 
 const configA = { pairs: ['BTC', 'ETH'], params: { limit: 10 } };
