@@ -179,3 +179,36 @@ for (let i = 2; i <= n; i++) {
 
 console.log(result);
 ```
+
+
+```js
+
+function isPrime(n) {
+  if (n < 2) return false;
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i === 0) return false;
+  }
+  return true;
+}
+
+const n = parseInt(readline());
+
+if (isPrime(n)) {
+  console.log(n);
+} else {
+  const factors = [];
+  let remaining = n;
+
+  for (let i = 2; i <= Math.sqrt(remaining); i++) {
+    while (remaining % i === 0) {
+      factors.push(i);
+      remaining = Math.floor(remaining / i);
+    }
+  }
+
+  if (remaining > 1) factors.push(remaining);
+
+  console.log(factors.join(' '));
+}
+
+```

@@ -5,13 +5,13 @@
  */
 function groupByProperty(orders, type) {
   if (orders.length === 0) return {};
-  const output = { "Buy": [], "Sell": [] };
-  if (type === "type" || type === "asset") {
+  const output = {};
+  if (Object.prototype.hasOwnProperty.call(orders[0], type) && !Object.prototype.hasOwnProperty.call(orders[0], "constructor")) {
     for (let i = 0; i < orders.length; i++) {
-      if (orders[i]["type"] == "Sell") {
-        output.Sell.push(orders[i]);
-      } else if (orders[i]['type'] == "Buy") {
-        output.Buy.push(orders[i]);
+      if (output[type]) {
+        output[type].push(orders[i]);
+      } else {
+        output[type] = [orders[i]];
       }
     }
     return output;
@@ -22,7 +22,8 @@ function groupByProperty(orders, type) {
 const orders = [
   { id: 1, type: 'Buy', asset: 'XAUUSD' },
   { id: 2, type: 'Sell', asset: 'BTCUSD' },
-  { id: 3, type: 'Buy', asset: 'BTCUSD' }
+  { id: 3, type: 'Buy', asset: 'BTCUSD' },
+  { id: 3, type: 'Buy Limit', asset: 'EURUSD' }
 ];
 
 console.log(groupByProperty(orders, 'type'));

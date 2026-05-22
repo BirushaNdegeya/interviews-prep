@@ -1,0 +1,10 @@
+const str = "4.3";
+const [h, m] = str.split('.');
+const total = (parseInt(h) * 3600) + (parseInt(m) * 60);
+const t24 = (24 * 3600) + (60 * 60);
+console.log(total, t24);
+const r = t24 - total;
+const hour = Math.floor(r / 3600);
+const min = Math.floor((r % 3600) / 60);
+const sec = Math.floor(r % 60);
+console.log(hour, min, sec);
