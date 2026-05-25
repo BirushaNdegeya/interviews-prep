@@ -6,7 +6,7 @@ for (const char of str) {
   if (resm.test(char)) {
     const code = (((char.charCodeAt(0) - 97) + 1) % 26) + 97;
     o += String.fromCharCode(code);
-  } else if (resm.test(char)) {
+  } else if (recap.test(char)) {
     const code = (((char.charCodeAt(0) - 65) + 1) % 26) + 65;
     o += String.fromCharCode(code);
   } else {
